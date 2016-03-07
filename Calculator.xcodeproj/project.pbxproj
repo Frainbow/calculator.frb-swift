@@ -196,6 +196,7 @@
 				TargetAttributes = {
 					5BFAD90C1C8AD0C900DA365A = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = VVXY4GH26U;
 					};
 					5BFAD9231C8AD0CA00DA365A = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -403,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.frb.Calculator;
@@ -414,6 +416,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.frb.Calculator;
@@ -488,6 +491,7 @@
 				5BFAD93A1C8AD0CA00DA365A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BFAD93B1C8AD0CA00DA365A /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +500,7 @@
 				5BFAD93D1C8AD0CA00DA365A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BFAD93E1C8AD0CA00DA365A /* Build configuration list for PBXNativeTarget "CalculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +509,7 @@
 				5BFAD9401C8AD0CA00DA365A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

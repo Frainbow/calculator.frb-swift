@@ -55,7 +55,7 @@ class Calculator {
         }
 
         // append the digit to input string
-        input += digitBtn.rawValue
+        input = input == "0" ? digitBtn.rawValue : input + digitBtn.rawValue
 
         return input
     }

@@ -15,6 +15,7 @@
 		5BFAD91E1C8AD0C900DA365A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BFAD91C1C8AD0C900DA365A /* LaunchScreen.storyboard */; };
 		5BFAD9291C8AD0CA00DA365A /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFAD9281C8AD0CA00DA365A /* CalculatorTests.swift */; };
 		5BFAD9341C8AD0CA00DA365A /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFAD9331C8AD0CA00DA365A /* CalculatorUITests.swift */; };
+		5BFAD9421C8D5FAF00DA365A /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFAD9411C8D5FAF00DA365A /* Calculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		5BFAD92F1C8AD0CA00DA365A /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFAD9331C8AD0CA00DA365A /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		5BFAD9351C8AD0CA00DA365A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BFAD9411C8D5FAF00DA365A /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				5BFAD9101C8AD0C900DA365A /* AppDelegate.swift */,
 				5BFAD9121C8AD0C900DA365A /* ViewController.swift */,
+				5BFAD9411C8D5FAF00DA365A /* Calculator.swift */,
 				5BFAD9141C8AD0C900DA365A /* Main.storyboard */,
 				5BFAD91A1C8AD0C900DA365A /* Assets.xcassets */,
 				5BFAD91C1C8AD0C900DA365A /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BFAD9131C8AD0C900DA365A /* ViewController.swift in Sources */,
+				5BFAD9421C8D5FAF00DA365A /* Calculator.swift in Sources */,
 				5BFAD9111C8AD0C900DA365A /* AppDelegate.swift in Sources */,
 				5BFAD9191C8AD0C900DA365A /* Calculator.xcdatamodeld in Sources */,
 			);

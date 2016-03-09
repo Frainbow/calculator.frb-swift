@@ -306,8 +306,8 @@
                                     <action selector="pushCalcBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5mP-HA-gR1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSv-qt-f6I" userLabel="output">
-                                <rect key="frame" x="10" y="20" width="300" height="109.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="oSv-qt-f6I" userLabel="output">
+                                <rect key="frame" x="20" y="20" width="280" height="109.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -349,7 +349,7 @@
                             <constraint firstItem="t49-Co-JSO" firstAttribute="height" secondItem="xvd-tJ-fd0" secondAttribute="height" id="azG-y6-CGS"/>
                             <constraint firstItem="pLp-XT-eIl" firstAttribute="width" secondItem="Ltp-KL-Vba" secondAttribute="width" id="b0D-ms-9mw"/>
                             <constraint firstItem="rUb-60-j3v" firstAttribute="leading" secondItem="CfR-k7-qn2" secondAttribute="trailing" id="bp8-5f-0IV"/>
-                            <constraint firstAttribute="trailing" secondItem="oSv-qt-f6I" secondAttribute="trailing" constant="10" id="c11-MH-rwe"/>
+                            <constraint firstAttribute="trailing" secondItem="oSv-qt-f6I" secondAttribute="trailing" constant="20" id="c11-MH-rwe"/>
                             <constraint firstItem="xvd-tJ-fd0" firstAttribute="top" secondItem="Ltp-KL-Vba" secondAttribute="bottom" id="cR1-q2-keZ"/>
                             <constraint firstItem="t49-Co-JSO" firstAttribute="width" secondItem="xvd-tJ-fd0" secondAttribute="width" id="cZb-ei-qD9"/>
                             <constraint firstItem="s2D-i2-7B0" firstAttribute="height" secondItem="npm-JM-fA0" secondAttribute="height" id="d7c-lm-aZz"/>
@@ -372,7 +372,7 @@
                             <constraint firstItem="vNO-pA-pd2" firstAttribute="height" secondItem="Kmn-16-Yjn" secondAttribute="height" id="nkv-Fp-FHP"/>
                             <constraint firstItem="Dkh-Nl-cLC" firstAttribute="centerY" secondItem="pLp-XT-eIl" secondAttribute="centerY" id="o1E-VU-Nlc"/>
                             <constraint firstItem="CVh-Hy-2tH" firstAttribute="centerY" secondItem="Kmn-16-Yjn" secondAttribute="centerY" id="pUv-ai-kPS"/>
-                            <constraint firstItem="oSv-qt-f6I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="pq8-1a-6nV"/>
+                            <constraint firstItem="oSv-qt-f6I" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="pq8-1a-6nV"/>
                             <constraint firstItem="oSv-qt-f6I" firstAttribute="height" secondItem="Ltp-KL-Vba" secondAttribute="height" id="rPz-U2-hSN"/>
                             <constraint firstItem="xvd-tJ-fd0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sY2-KG-cNM"/>
                             <constraint firstItem="vNO-pA-pd2" firstAttribute="top" secondItem="xvd-tJ-fd0" secondAttribute="bottom" id="uIn-qU-sD9"/>

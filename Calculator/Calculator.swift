@@ -27,131 +27,146 @@ class Calculator {
     enum OperatorBtn: String {
         case add        = "+"
         case minus      = "-"
-        case multiply   = "*"
-        case divide     = "/"
-    }
-
-    enum FunctionBtn: String {
+        case multiply   = "×"
+        case divide     = "÷"
         case result     = "="
     }
 
-    var input: String = ""
-    var output: String?
-    var number1: Double?
-    var number2: Double?
-    var optor: OperatorBtn?
-    var isCalculated: Bool = false
+    enum FunctionBtn: String {
+        case clearAll   = "AC"
+        case toggleSign = "+/-"
+        case percent    = "%"
+    }
 
-    func inputDigit(digitBtn: DigitBtn) -> String? {
-        
-        // skip if point has existed in a number
-        if (digitBtn == .point && input.rangeOfString(DigitBtn.point.rawValue) != nil) {
+    var text: String = "0"
+    var value: Double = 0
+    var operand1: Double? = nil
+    var optor: OperatorBtn? = nil
+    var operand2: Double? = nil
+    var isNewValue: Bool = true
+    var isNewStatement: Bool = true
+
+    func onClickDigitBtn(digitBtn: DigitBtn) -> String? {
+
+        if (isNewValue || isNewStatement) {
+            text = "0"
+            value = 0
+        }
+
+        if (isNewStatement) {
+            operand1 = nil
+            optor = nil
+            operand2 = nil
+        }
+
+        if (digitBtn == .point && text.rangeOfString(DigitBtn.point.rawValue) != nil) {
+            // more than one point is invalid
             return nil
         }
 
-        // reset previous output
-        if isCalculated && input.characters.count == 0 {
-            clear()
+        if (digitBtn != .point && text == "0") {
+            // remove the leading zero
+            if let doubleValue = Double(digitBtn.rawValue) {
+                text = digitBtn.rawValue
+                value = doubleValue
+            }
+        }
+        else {
+            // append digit to text value
+            if let doubleValue = Double(text + digitBtn.rawValue) {
+                text = text + digitBtn.rawValue
+                value = doubleValue
+            }
         }
 
-        // append the digit to input string
-        input = input == "0" ? digitBtn.rawValue : input + digitBtn.rawValue
+        isNewValue = false
+        isNewStatement = false
 
-        return input
+        return text
     }
 
-    func inputOperator(operatorBtn: OperatorBtn) -> String? {
+    func onClickOperatorBtn(operatorBtn: OperatorBtn) -> String? {
 
-        // set number1 as zero if no digit is input before operating
-        if number1 == nil && Double(input) == nil {
-            number1 = 0
+        if operand1 == nil && operatorBtn != .result {
+            operand1 = value
         }
 
-        // operate numbers if both have values
-        if let num1 = number1, op = optor, num = Double(input) {
-
-            let (outputDouble, outputString) = calculate(num1, op, num)
-
-            output = outputString
-            number1 = outputDouble
+        if operand2 == nil {
+            operand2 = value
         }
 
-        // save input string to number1 if no operator is input before
-        else if let num = Double(input) {
-            output = input
-            number1 = num
+        if let operand1 = operand1, optor = optor, operand2 = operand2 {
+
+            if (!isNewStatement || operatorBtn == .result) {
+
+                switch (optor) {
+                case .add:
+                    value = operand1 + operand2
+                case .minus:
+                    value = operand1 - operand2
+                case .multiply:
+                    value = operand1 * operand2
+                case .divide:
+                    value = operand1 / operand2
+                default:
+                    break
+                }
+
+                let (doubleValue, stringValue) = self.adjustValue(value)
+
+                self.operand1 = doubleValue
+                self.text = stringValue
+                self.value = doubleValue
+            }
         }
 
-        input = ""
-        number2 = nil
-        optor = operatorBtn
-        isCalculated = false
+        if (operatorBtn != .result) {
+            optor = operatorBtn
+            operand2 = nil
+        }
 
-        return output
+        isNewValue = true
+        isNewStatement = (operatorBtn == .result)
+        
+        return text
     }
 
-    func getResult() -> String? {
+    func onClickFunctionBtn(functionBtn: FunctionBtn) -> String? {
+        
+        switch functionBtn {
+        case .clearAll:
+            text = "0"
+            value = 0
+            operand1 = nil
+            optor = nil
+            operand2 = nil
+            isNewValue = true
+            isNewStatement = true
+        case .toggleSign:
+            (value, text) = self.adjustValue(value * (-1))
 
-        if let num1 = number1, op = optor {
-            var num2: Double = 0
-            
-            // input sequence: 1 + 1 =
-            if let num = Double(input) {
-                num2 = num
+            if isNewStatement {
+                operand1 = value
             }
-            // input sequence: 1 + 1 = =
-            else if let num = number2 {
-                num2 = num
-            }
-            // input sequence: 1 + =
-            else if let num = number1 {
-                num2 = num
-            }
-            else {
-                return nil
-            }
+        case .percent:
+            (value, text) = self.adjustValue(value * (0.01))
 
-            let (outputDouble, outputString) = calculate(num1, op, num2)
-
-            input = ""
-            output = outputString
-            number1 = outputDouble
-            number2 = num2
-            isCalculated = true
+            if isNewStatement {
+                operand1 = value
+            }
         }
 
-        return output
+        return text
     }
     
-    func calculate(num1: Double, _ optor: OperatorBtn, _ num2: Double) -> (Double, String?) {
-        var result: Double
-
-        switch optor {
-        case .add:
-            result = num1 + num2
-        case .minus:
-            result = num1 - num2
-        case .multiply:
-            result = num1 * num2
-        case .divide:
-            result = num1 / num2
+    func adjustValue(value: Double) -> (Double, String) {
+        
+        var stringValue = String(value)
+        
+        if value % 1 == 0 {
+            stringValue = stringValue.characters.split{ $0 == "." }.map(String.init)[0]
         }
-
-        let precision: Double = 1000 * 1000 * 1000 * 1000
-
-        result = round(result * precision) / precision
-
-        return result % 1 == 0 ? (result, String(Int(result))) : (result, Optional(String(result)))
-    }
-
-    func clear() -> String? {
-        input = ""
-        output = nil
-        number1 = nil
-        number2 = nil
-        optor = nil
-        isCalculated = false
-
-        return "0"
+        
+        return (value, stringValue)
     }
 }

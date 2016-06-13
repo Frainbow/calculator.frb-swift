@@ -29,16 +29,16 @@ class ViewController: UIViewController {
         let digitBtn = sender as? UIButton
 
         if let title = digitBtn?.titleLabel?.text {
-            var output: String?;
+            var output: String?
 
             if let btn = Calculator.DigitBtn(rawValue: title) {
-                output = calculator.inputDigit(btn)
+                output = calculator.onClickDigitBtn(btn)
             }
             else if let btn = Calculator.OperatorBtn(rawValue: title) {
-                output = calculator.inputOperator(btn)
+                output = calculator.onClickOperatorBtn(btn)
             }
-            else if Calculator.FunctionBtn(rawValue: title) == Calculator.FunctionBtn.result {
-                output = calculator.getResult()
+            else if let btn = Calculator.FunctionBtn(rawValue: title) {
+                output = calculator.onClickFunctionBtn(btn)
             }
 
             if let text = output {
